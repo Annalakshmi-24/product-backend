@@ -1,0 +1,178 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.acme.billing:billing-customer >------------------
+[INFO] Building billing-customer 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.2.0:run (default-cli) > test-compile @ billing-customer >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ billing-customer ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ billing-customer ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ billing-customer ---
+[INFO] skip non existing resourceDirectory /Users/sunilkumar/Downloads/product-backend-main/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ billing-customer ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 1 source file with javac [debug release 17] to target/test-classes
+[INFO] 
+[INFO] <<< spring-boot:3.2.0:run (default-cli) < test-compile @ billing-customer <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.2.0:run (default-cli) @ billing-customer ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2025-12-11T13:35:14.604+05:30  INFO 31232 --- [billing-customer] [  restartedMain] com.billing.BillingApplication           : Starting BillingApplication using Java 17.0.17 with PID 31232 (/Users/sunilkumar/Downloads/product-backend-main/target/classes started by sunilkumar in /Users/sunilkumar/Downloads/product-backend-main)
+2025-12-11T13:35:14.605+05:30  INFO 31232 --- [billing-customer] [  restartedMain] com.billing.BillingApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-12-11T13:35:14.625+05:30  INFO 31232 --- [billing-customer] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-11T13:35:14.625+05:30  INFO 31232 --- [billing-customer] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-11T13:35:14.934+05:30  INFO 31232 --- [billing-customer] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-11T13:35:14.964+05:30  INFO 31232 --- [billing-customer] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 1 JPA repository interface.
+2025-12-11T13:35:15.230+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-11T13:35:15.235+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-11T13:35:15.235+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-12-11T13:35:15.254+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-11T13:35:15.254+05:30  INFO 31232 --- [billing-customer] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 628 ms
+2025-12-11T13:35:15.332+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-11T13:35:15.366+05:30  INFO 31232 --- [billing-customer] [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-12-11T13:35:15.382+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-11T13:35:15.489+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-11T13:35:15.502+05:30  INFO 31232 --- [billing-customer] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-11T13:35:15.736+05:30  INFO 31232 --- [billing-customer] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@13cd4043
+2025-12-11T13:35:15.737+05:30  INFO 31232 --- [billing-customer] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-11T13:35:15.793+05:30  WARN 31232 --- [billing-customer] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-11T13:35:16.149+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-11T13:35:16.217+05:30  INFO 31232 --- [billing-customer] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+Stored procedure 'product_getall' created successfully.
+2025-12-11T13:35:16.372+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-11T13:35:16.559+05:30  WARN 31232 --- [billing-customer] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-11T13:35:16.708+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-11T13:35:16.722+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-12-11T13:35:16.727+05:30  INFO 31232 --- [billing-customer] [  restartedMain] com.billing.BillingApplication           : Started BillingApplication in 2.281 seconds (process running for 2.486)
+2025-12-11T13:35:20.457+05:30  INFO 31232 --- [billing-customer] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-11T13:35:20.459+05:30  INFO 31232 --- [billing-customer] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-11T13:35:20.466+05:30  INFO 31232 --- [billing-customer] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0
+2025-12-11T13:35:24.992+05:30  INFO 31232 --- [billing-customer] [nio-8080-exec-2] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x070x120x010x000x070x0e0x030x03:0xab0x9aU0xd40xdc_0xbc0x0a50xb2e0xa50x8e0xd40xecN0xa20xcb0xac0xce0xe8f0xcb0xfaL0xa80x0d0x800x0c0xd3A ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0
+Hibernate: insert into product_table (category,created,created_by,is_active,modified,modified_by,organization_id,product_name,purchase_price,sales_price,sku,status,stock,tenant_id) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2025-12-11T13:36:56.838+05:30  INFO 31232 --- [billing-customer] [nio-8080-exec-9] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x060xd20x010x000x060xce0x030x03'0xcbw0x1f0xfd0x890xad0xdfZ0x940x810xdf0xe90x7f*oNN0xa90x1f0x1b`0x8b0xe5?0x1b0xfc0xc20xea0xe00xe50xf2 ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0 where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0 where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0 where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0 where p1_0.id=?
+2025-12-11T13:46:23.296+05:30  WARN 31232 --- [billing-customer] [nio-8080-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2025-12-11T13:46:25.334+05:30  INFO 31232 --- [billing-customer] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 16 class path changes (3 additions, 0 deletions, 13 modifications)
+2025-12-11T13:46:25.406+05:30  INFO 31232 --- [billing-customer] [       Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-11T13:46:25.430+05:30  INFO 31232 --- [billing-customer] [       Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-11T13:46:25.518+05:30  INFO 31232 --- [billing-customer] [       Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2025-12-11T13:46:25.692+05:30  INFO 31232 --- [billing-customer] [  restartedMain] com.billing.BillingApplication           : Starting BillingApplication using Java 17.0.17 with PID 31232 (/Users/sunilkumar/Downloads/product-backend-main/target/classes started by sunilkumar in /Users/sunilkumar/Downloads/product-backend-main)
+2025-12-11T13:46:25.692+05:30  INFO 31232 --- [billing-customer] [  restartedMain] com.billing.BillingApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-12-11T13:46:25.862+05:30  INFO 31232 --- [billing-customer] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-11T13:46:25.869+05:30  INFO 31232 --- [billing-customer] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 1 JPA repository interface.
+2025-12-11T13:46:25.953+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-11T13:46:25.953+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-11T13:46:25.953+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-12-11T13:46:25.957+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-11T13:46:25.957+05:30  INFO 31232 --- [billing-customer] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 264 ms
+2025-12-11T13:46:25.976+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-11T13:46:25.977+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-11T13:46:25.978+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-11T13:46:25.978+05:30  INFO 31232 --- [billing-customer] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-12-11T13:46:26.024+05:30  INFO 31232 --- [billing-customer] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@675b4699
+2025-12-11T13:46:26.024+05:30  INFO 31232 --- [billing-customer] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-12-11T13:46:26.025+05:30  WARN 31232 --- [billing-customer] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-11T13:46:26.044+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-11T13:46:26.130+05:30  INFO 31232 --- [billing-customer] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+Stored procedure 'product_getall' created successfully.
+2025-12-11T13:46:26.245+05:30  WARN 31232 --- [billing-customer] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-11T13:46:26.298+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-11T13:46:26.303+05:30  INFO 31232 --- [billing-customer] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-12-11T13:46:26.306+05:30  INFO 31232 --- [billing-customer] [  restartedMain] com.billing.BillingApplication           : Started BillingApplication in 0.626 seconds (process running for 672.088)
+2025-12-11T13:46:26.307+05:30  INFO 31232 --- [billing-customer] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-11T13:46:54.616+05:30  INFO 31232 --- [billing-customer] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-11T13:46:54.618+05:30  INFO 31232 --- [billing-customer] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-11T13:46:54.621+05:30  INFO 31232 --- [billing-customer] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0 where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0 where p1_0.id=?
+Hibernate: update product_table set category=?,created=?,created_by=?,is_active=?,modified=?,modified_by=?,organization_id=?,product_name=?,purchase_price=?,sales_price=?,sku=?,status=?,stock=?,tenant_id=? where id=?
+2025-12-11T13:47:02.447+05:30  WARN 31232 --- [billing-customer] [nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'text/plain;charset=UTF-8' is not supported]
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0
+2025-12-11T13:47:09.353+05:30  WARN 31232 --- [billing-customer] [nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.billing.models.Product com.billing.controller.ProductController.updateProduct(java.lang.Long,com.billing.models.Product)]
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0 where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0 where p1_0.id=?
+Hibernate: update product_table set category=?,created=?,created_by=?,is_active=?,modified=?,modified_by=?,organization_id=?,product_name=?,purchase_price=?,sales_price=?,sku=?,status=?,stock=?,tenant_id=? where id=?
+Hibernate: insert into product_table (category,created,created_by,is_active,modified,modified_by,organization_id,product_name,purchase_price,sales_price,sku,status,stock,tenant_id) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0 where p1_0.id=?
+2025-12-11T13:51:18.594+05:30  WARN 31232 --- [billing-customer] [nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'tenant_id' for method parameter type Long is not present]
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0
+2025-12-11T13:52:46.388+05:30  WARN 31232 --- [billing-customer] [nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0 where p1_0.id=?
+Hibernate: update product_table set category=?,created=?,created_by=?,is_active=?,modified=?,modified_by=?,organization_id=?,product_name=?,purchase_price=?,sales_price=?,sku=?,status=?,stock=?,tenant_id=? where id=?
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0 where p1_0.id=?
+Hibernate: update product_table set category=?,created=?,created_by=?,is_active=?,modified=?,modified_by=?,organization_id=?,product_name=?,purchase_price=?,sales_price=?,sku=?,status=?,stock=?,tenant_id=? where id=?
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0
+Hibernate: select p1_0.id,p1_0.category,p1_0.created,p1_0.created_by,p1_0.is_active,p1_0.modified,p1_0.modified_by,p1_0.organization_id,p1_0.product_name,p1_0.purchase_price,p1_0.sales_price,p1_0.sku,p1_0.status,p1_0.stock,p1_0.tenant_id from product_table p1_0 where p1_0.id=?
+Hibernate: update product_table set category=?,created=?,created_by=?,is_active=?,modified=?,modified_by=?,organization_id=?,product_name=?,purchase_price=?,sales_price=?,sku=?,status=?,stock=?,tenant_id=? where id=?
