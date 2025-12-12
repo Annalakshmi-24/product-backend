@@ -39,6 +39,18 @@ public class ProductController {
         return productService.getProductsByTenantAndOrg(tenant_id, organization_id);
     }
 
+    // Pagination endpoint - MUST come before /{id} to avoid route conflict
+    @GetMapping("/pagination")
+    public List<ProductPaginationResponse> getProductsPagination(
+            @RequestParam Long tenantId,
+            @RequestParam Long organizationId,
+            @RequestParam(required = false) String searchText,
+            @RequestParam(defaultValue = "1") Integer offsetStart,
+            @RequestParam(defaultValue = "10") Integer rowsPerPage) 
+    {
+        return productService.getProductsPagination(tenantId, organizationId, searchText, offsetStart, rowsPerPage);
+    }
+
     // READ - GET by ID
     @GetMapping("/{id}")
     public Product getById(@PathVariable Long id) 
@@ -61,17 +73,6 @@ public class ProductController {
     {
         productService.deleteProduct(id);
         return "Product deleted successfully!";
-    }
-
-    @GetMapping("/pagination")
-    public List<ProductPaginationResponse> getProductsPagination(
-            @RequestParam Long tenantId,
-            @RequestParam Long organizationId,
-            @RequestParam(required = false) String searchText,
-            @RequestParam(defaultValue = "1") Integer offsetStart,
-            @RequestParam(defaultValue = "10") Integer rowsPerPage) 
-    {
-        return productService.getProductsPagination(tenantId, organizationId, searchText, offsetStart, rowsPerPage);
     }
 
 }

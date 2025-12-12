@@ -1,5 +1,6 @@
 package com.billing.service.impl;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -221,9 +222,35 @@ public class ProductServiceImpl implements ProductService
             response.setSalePrice(row[3] != null ? ((Number) row[3]).doubleValue() : null);
             response.setStock(row[4] != null ? ((Number) row[4]).intValue() : null);
             response.setStatus(row[5] != null ? String.valueOf(row[5]) : null);
-            response.setCreated(row[6] != null ? (LocalDateTime) row[6] : null);
+            
+            // Convert Timestamp to LocalDateTime
+            if (row[6] != null) {
+                if (row[6] instanceof Timestamp) {
+                    response.setCreated(((Timestamp) row[6]).toLocalDateTime());
+                } else if (row[6] instanceof LocalDateTime) {
+                    response.setCreated((LocalDateTime) row[6]);
+                } else {
+                    response.setCreated(null);
+                }
+            } else {
+                response.setCreated(null);
+            }
+            
             response.setCreatedBy(row[7] != null ? (String) row[7] : null);
-            response.setModified(row[8] != null ? (LocalDateTime) row[8] : null);
+            
+            // Convert Timestamp to LocalDateTime
+            if (row[8] != null) {
+                if (row[8] instanceof Timestamp) {
+                    response.setModified(((Timestamp) row[8]).toLocalDateTime());
+                } else if (row[8] instanceof LocalDateTime) {
+                    response.setModified((LocalDateTime) row[8]);
+                } else {
+                    response.setModified(null);
+                }
+            } else {
+                response.setModified(null);
+            }
+            
             response.setModifiedBy(row[9] != null ? (String) row[9] : null);
             response.setTotalRowsCount(row[10] != null ? ((Number) row[10]).longValue() : null);
             return response;
