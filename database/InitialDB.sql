@@ -1,10 +1,12 @@
--- Create the products table
+-- Create DataBase
 CREATE DATABASE products;
+
+--Create Table
 CREATE TABLE product_table (
     id INT PRIMARY KEY AUTO_INCREMENT,
     sku VARCHAR(50),
     product_name VARCHAR(100),
-    tenant_id INT,
+    tenant_id STRING,
     organization_id INT,
     status VARCHAR(50),
     created DATETIME,

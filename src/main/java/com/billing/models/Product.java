@@ -2,11 +2,12 @@ package com.billing.models;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters.LocalDateTimeConverter;
 
 @Entity
 @Table(name = "product_table")
-public class Product {
-
+public class Product 
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,36 +15,38 @@ public class Product {
     private String sku;
     
     @Column(name = "tenant_id")
-    private Long tenant_id;
+    private String tenantId;
     
     @Column(name = "organization_id")
-    private Long organization_id;
+    private String organizationId;
 
     @Column(name = "product_name")
-    private String product_name;
+    private String productName;
     
     private String category;
 
     private Integer stock;
     
     @Column(name = "purchase_price")
-    private Double purchase_price;
+    private Double purchasePrice;
     
     @Column(name = "sales_price")
-    private Double sales_price;
+    private Double salesPrice;
     
     @Column(name = "is_active")
-    private Integer is_active;
+    private Integer isActive=1;
     
     private String status;
 
     @Column(name = "created_by")
-    private String created_by;
+    private String createdBy;
     
     @Column(name = "modified_by")
-    private String modified_by;
+    private String modifiedBy;
 
+    @Convert(converter = LocalDateTimeConverter.class)
     private LocalDateTime created;
+    
     private LocalDateTime modified;
 
    
@@ -54,14 +57,14 @@ public class Product {
     public String getSku() { return sku; }
     public void setSku(String sku) { this.sku = sku; }
 
-    public Long getTenant_id() { return tenant_id; }
-    public void setTenant_id(Long tenant_id) { this.tenant_id = tenant_id; }
+    public String getTenantId() { return tenantId; }
+    public void setTenantId(String tenantId) { this.tenantId = tenantId; }
 
-    public Long getOrganization_id() { return organization_id; }
-    public void setOrganization_id(Long organization_id) { this.organization_id = organization_id; }
+    public String getOrganizationId() { return organizationId; }
+    public void setOrganizationId(String organizationId) { this.organizationId = organizationId; }
 
-    public String getProduct_name() { return product_name; }
-    public void setProduct_name(String product_name) { this.product_name = product_name; }
+    public String getProductName() { return productName; }
+    public void setProductName(String productName) { this.productName = productName; }
 
     public String getCategory() { return category; }
     public void setCategory(String category) { this.category = category; }
@@ -69,23 +72,23 @@ public class Product {
     public Integer getStock() { return stock; }
     public void setStock(Integer stock) { this.stock = stock; }
 
-    public Double getPurchase_price() { return purchase_price; }
-    public void setPurchase_price(Double purchase_price) { this.purchase_price = purchase_price; }
+    public Double getPurchasePrice() { return purchasePrice; }
+    public void setPurchasePrice(Double purchasePrice) { this.purchasePrice = purchasePrice; }
 
-    public Double getSales_price() { return sales_price; }
-    public void setSales_price(Double sales_price) { this.sales_price = sales_price; }
+    public Double getSalesPrice() { return salesPrice; }
+    public void setSalesPrice(Double salesPrice) { this.salesPrice = salesPrice; }
 
-    public Integer getIs_active() { return is_active; }
-    public void setIs_active(Integer is_active) { this.is_active = is_active; }
+    public Integer getIsActive() { return isActive; }
+    public void setIsActive(Integer isActive) { this.isActive = isActive; }
 
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
 
-    public String getCreated_by() { return created_by; }
-    public void setCreated_by(String created_by) { this.created_by = created_by; }
+    public String getCreatedBy() { return createdBy; }
+    public void setCreatedBy(String createdBy) { this.createdBy = createdBy; }
 
-    public String getModified_by() { return modified_by; }
-    public void setModified_by(String modified_by) { this.modified_by = modified_by; }
+    public String getModifiedBy() { return modifiedBy; }
+    public void setModifiedBy(String modifiedBy) { this.modifiedBy = modifiedBy; }
 
     public LocalDateTime getCreated() { return created; }
     public void setCreated(LocalDateTime created) { this.created = created; }

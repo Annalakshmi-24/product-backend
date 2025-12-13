@@ -4,9 +4,7 @@ INSERT INTO products (
     product_id,
     tenant_id,
     organizational_id,
-    
     status,
-    
     created_by,
     modified_by,
     is_active,

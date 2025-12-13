@@ -1,8 +1,8 @@
 package com.billing.dto;
-
 import java.time.LocalDateTime;
 
-public class ProductPaginationResponse {
+public class ProductPaginationResponse 
+{
     
     private Long id;
     private String sku;
@@ -16,12 +16,11 @@ public class ProductPaginationResponse {
     private String modifiedBy;
     private Long totalRowsCount;
 
-    // Constructors
+    
     public ProductPaginationResponse() {
     }
 
-    public ProductPaginationResponse(Long id, String sku, String category, Double salePrice, 
-                                   Integer stock, String status, LocalDateTime created, 
+    public ProductPaginationResponse(Long id, String sku, String category, Double salePrice, Integer stock, String status, LocalDateTime created, 
                                    String createdBy, LocalDateTime modified, String modifiedBy, 
                                    Long totalRowsCount) {
         this.id = id;
