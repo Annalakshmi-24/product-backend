@@ -1,4 +1,4 @@
-package com.billing.validation_interface;
+package com.billing.validation;
 
 import com.billing.models.Product;
 
@@ -23,7 +23,7 @@ public class ProductValidation
         if (product.getSalesPrice() != null && product.getSalesPrice() < 0) {
             throw new IllegalArgumentException("Sales price cannot be negative");
         }
-        if (product.getStock() != null && product.getStock() < 0) {
+        if (product.getCurrentStock() != null && product.getCurrentStock() < 0) {
             throw new IllegalArgumentException("Stock cannot be negative");
         }
     }
@@ -43,13 +43,13 @@ public class ProductValidation
         if (product.getSalesPrice() != null && product.getSalesPrice() < 0) {
             throw new IllegalArgumentException("Sales price cannot be negative");
         }
-        if (product.getStock() != null && product.getStock() < 0) {
+        if (product.getCurrentStock() != null && product.getCurrentStock() < 0) {
             throw new IllegalArgumentException("Stock cannot be negative");
         }
     }
 
     // PAGINATION PARAMETER VALIDATION
-    public static void validatePagination(String tenantId, String orgId, Integer offset, Integer rows) {
+    public static void validatePagination(String tenantId, String orgId, Integer offset, Integer rows, String sortColumn, String sortOrder) {
 
         if (tenantId == "") {
             throw new IllegalArgumentException("tenant_id is not must be empty");

@@ -22,20 +22,26 @@ public class Product
 
     @Column(name = "product_name")
     private String productName;
-    
-    private String category;
 
-    private Integer stock;
+    @Column(name = "category_id")
+    private Integer categoryId;
+
+    @Column(name = "current_stock")
+    private Integer currentStock;
+
+    @Column(name = "minimum_stock")
+    private Integer minStock;
     
     @Column(name = "purchase_price")
     private Double purchasePrice;
     
-    @Column(name = "sales_price")
+    @Column(name = "sales_price ")
     private Double salesPrice;
     
-    @Column(name = "is_active")
+    @Column(name = "active")
     private Integer isActive=1;
-    
+
+    @Column(name = "status")
     private String status;
 
     @Column(name = "created_by")
@@ -48,7 +54,19 @@ public class Product
     private LocalDateTime created;
     
     private LocalDateTime modified;
+  
+   
+    @Column(name = "tax_rate")
+    private String taxRate;  
+  
+    
+    @Column(name = "code")
+    private Integer code;
 
+    @Column(name = "unit")
+    private String unit;
+
+    
    
 
     public Long getId() { return id; }
@@ -66,11 +84,14 @@ public class Product
     public String getProductName() { return productName; }
     public void setProductName(String productName) { this.productName = productName; }
 
-    public String getCategory() { return category; }
-    public void setCategory(String category) { this.category = category; }
+    public Integer getCategoryId() { return categoryId; }
+    public void setCategoryId(Integer categoryId) { this.categoryId = categoryId; }
 
-    public Integer getStock() { return stock; }
-    public void setStock(Integer stock) { this.stock = stock; }
+    public Integer getCurrentStock() { return currentStock; }
+    public void setCurrentStock(Integer currentStock) { this.currentStock = currentStock; }
+
+    public Integer getMinStock() { return minStock; }
+    public void setMinStock(Integer minStock) { this.minStock = minStock; }
 
     public Double getPurchasePrice() { return purchasePrice; }
     public void setPurchasePrice(Double purchasePrice) { this.purchasePrice = purchasePrice; }
@@ -95,4 +116,17 @@ public class Product
 
     public LocalDateTime getModified() { return modified; }
     public void setModified(LocalDateTime modified) { this.modified = modified; }
+
+   
+    public String getTaxRate() { return taxRate; }
+    public void setTaxRate(String taxRate) { this.taxRate = taxRate; }
+
+    public Integer getCode() { return code; }
+    public void setCode(Integer code) { this.code = code; }
+
+    public String getUnit() { return unit; }
+    public void setUnit(String unit) { this.unit = unit; }
+
+
+
 }

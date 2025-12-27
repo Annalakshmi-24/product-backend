@@ -12,31 +12,36 @@ public interface ProductRepository extends JpaRepository<Product, Long>
 {
 
    //GetAllProductList
-    @Query(
-        value = "CALL getProductsList(:tenantId, :organizationId, :searchText, :offsetStart, :rowsPerPage)",
-        nativeQuery = true
-    )
-    List<Object[]> getAllProductList(
-            @Param("tenantId") String tenantId,
-            @Param("organizationId") String organizationId,
-            @Param("searchText") String searchText,
-            @Param("offsetStart") Integer offsetStart,
-            @Param("rowsPerPage") Integer rowsPerPage
-    );
+   @Query(
+    value = "CALL getProductsList(:tenantId, :organizationId,  :offsetStart, :rowsPerPage, :searchText,  :sortOrder, :sortColumn)",
+    nativeQuery = true
+)
+List<Object[]> getAllProductList(
+        @Param("tenantId") String tenantId,
+        @Param("organizationId") String organizationId,
+        @Param("offsetStart") Integer offsetStart,
+        @Param("rowsPerPage") Integer rowsPerPage,
+        @Param("searchText") String searchText,
+        @Param("sortOrder") String sortOrder,
+        @Param("sortColumn") String sortColumn
+);
+
 
    
    // FETCH METHODS
    
         List<Product> findByTenantIdAndOrganizationId(String tenantId, String organizationId);
 
-        List<Product> findByTenantIdAndOrganizationIdAndIsActive(String tenantId, String organizationId, Integer is_active);
+        List<Product> findByTenantIdAndOrganizationIdAndIsActive(String tenantId, String organizationId, Integer active);
 
-        List<Product> findByTenantIdAndIsActive(String tenantId, Integer is_active);
+        List<Product> findByTenantIdAndIsActive(String tenantId, Integer active);
 
-        List<Product> findByOrganizationIdAndIsActive( String organizationId, Integer is_active);
+        List<Product> findByOrganizationIdAndIsActive( String organizationId, Integer active);
 
-        List<Product> findByIsActive(Integer is_active);
+        List<Product> findByIsActive(Integer active);
 
+       
+      
    // GET PRODUCT BY ID
    
         Product findByTenantIdAndOrganizationIdAndId(String tenantId, String organizationId, Long id);
@@ -44,7 +49,7 @@ public interface ProductRepository extends JpaRepository<Product, Long>
    //DELETE BY ID
  
         Product findByTenantIdAndOrganizationIdAndIdAndIsActive(String tenantId, String organizationId, Long id, Integer isActive);
-   
+
 }
 
 

@@ -2,16 +2,18 @@ package com.billing.dto;
 
 import java.time.LocalDateTime;
 
-public class ProductDto {
+public class ProductDto 
+{
 
     private Long id;
     private String sku;
     private String tenantId;
     private String organizationId;
     private String productName;
-    private String category;
+    private Integer categoryId;
 
-    private Integer stock;
+    private Integer currentStock;
+    private Integer minStock;
     private Double purchasePrice;
     private Double salesPrice;
     private Integer isActive;
@@ -22,6 +24,9 @@ public class ProductDto {
 
     private LocalDateTime created;
     private LocalDateTime modified;
+    private String taxRate;
+    private Integer code;
+    private String unit;
 
  
 
@@ -40,11 +45,14 @@ public class ProductDto {
     public String getProductName() { return productName; }
     public void setProductName(String productName) { this.productName = productName; }
 
-    public String getCategory() { return category; }
-    public void setCategory(String category) { this.category = category; }
+    public Integer getCategoryId() { return categoryId; }
+    public void setCategoryId(Integer category) { this.categoryId = categoryId; }
 
-    public Integer getStock() { return stock; }
-    public void setStock(Integer stock) { this.stock = stock; }
+    public Integer getCurrentStock() { return currentStock; }
+    public void setCurrentStock(Integer currentStock) { this.currentStock = currentStock; }
+
+     public Integer getMinStock() { return minStock; }
+    public void setMinStock(Integer minStock) { this.minStock = minStock; }
 
     public Double getPurchasePrice() { return purchasePrice; }
     public void setPurchasePrice(Double purchasePrice) { this.purchasePrice = purchasePrice; }
@@ -69,4 +77,14 @@ public class ProductDto {
 
     public LocalDateTime getModified() { return modified; }
     public void setModified(LocalDateTime modified) { this.modified = modified; }
+
+    public String getTaxRate() { return taxRate; }
+    public void setTaxRate(String taxRate) { this.taxRate = taxRate; }
+
+    public Integer getCode() { return code; }
+    public void setCode(Integer code) { this.code = code; }
+
+     public String getUnit() { return unit; }
+    public void setUnit(String unit) { this.unit = unit; }
+
 }

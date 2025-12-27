@@ -15,18 +15,27 @@ public class ProductMapper
         dto.setId(product.getId());
         dto.setSku(product.getSku());
         dto.setTenantId(product.getTenantId());
+        dto.setCategoryId(product.getCategoryId());
         dto.setProductName(product.getProductName());
-        dto.setCategory(product.getCategory());
         dto.setIsActive(product.getIsActive());
         dto.setStatus(product.getStatus());
         dto.setCreatedBy(product.getCreatedBy());
-        dto.setStock(product.getStock());
+        dto.setCurrentStock(product.getCurrentStock());
+        dto.setMinStock(product.getMinStock());
         dto.setPurchasePrice(product.getPurchasePrice());
         dto.setModified(product.getModified());
         dto.setModifiedBy(product.getModifiedBy());
         dto.setSalesPrice(product.getSalesPrice());
         dto.setCreated(product.getCreated());
         dto.setOrganizationId(product.getOrganizationId());
+   
+        dto.setTaxRate(product.getTaxRate());
+
+
+
+         dto.setCode(product.getCode());
+         dto.setUnit(product.getUnit());
+
 
         return dto;
     }
@@ -40,18 +49,23 @@ public class ProductMapper
         product.setId(dto.getId());
         product.setSku(dto.getSku());
         product.setTenantId(dto.getTenantId());
+        product.setCategoryId(dto.getCategoryId());
         product.setProductName(dto.getProductName());
-        product.setCategory(dto.getCategory());
         product.setIsActive(dto.getIsActive());
         product.setStatus(dto.getStatus());
         product.setCreatedBy(dto.getCreatedBy());
-        product.setStock(dto.getStock());
+        product.setCurrentStock(dto.getCurrentStock());
+        product.setMinStock(dto.getMinStock());
         product.setPurchasePrice(dto.getPurchasePrice());
         product.setModified(dto.getModified());
         product.setModifiedBy(dto.getModifiedBy());
         product.setSalesPrice(dto.getSalesPrice());
         product.setCreated(dto.getCreated());
-       product.setOrganizationId(dto.getOrganizationId());
+        product.setOrganizationId(dto.getOrganizationId());
+        product.setTaxRate(dto.getTaxRate());
+        product.setCode(dto.getCode());
+         product.setUnit(dto.getUnit());
+
 
         return product;
     }

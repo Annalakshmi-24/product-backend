@@ -1,6 +1,7 @@
 package com.billing.exception;
 
-public class ProductNotFoundException extends RuntimeException {
+public class ProductNotFoundException extends RuntimeException 
+{
     
     public ProductNotFoundException(String message) {
         super(message);
@@ -10,6 +11,3 @@ public class ProductNotFoundException extends RuntimeException {
         super("Product with id " + id + " not found");
     }
 }
-
-
-

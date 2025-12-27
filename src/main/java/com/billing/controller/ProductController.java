@@ -1,145 +1,253 @@
 package com.billing.controller;
+
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 
+// Logger
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.*;
+
 import com.billing.dto.ProductPaginationResponse;
+import com.billing.dto.ProductIdNameDTO;
 import com.billing.dto.ProductPaginationRequest;
 import com.billing.models.Product;
-import com.billing.service.ProductService;
+import com.billing.interfaces.ProductService;
+import com.billing.service.ProductServiceImpl;
+import com.billing.exception.ProductCustomExceptions;
 
 @RestController
 @RequestMapping("/api/products")
-
 public class ProductController 
 {
-    private final ProductService productService;
+    private static final Logger log = LoggerFactory.getLogger(ProductController.class);
 
-    public ProductController(ProductService productService) 
+    private final ProductServiceImpl productService;
+
+    public ProductController(ProductServiceImpl productService) 
     {
         this.productService = productService;
     }
 
-<<<<<<< Updated upstream
-    // CREATE - POST
-    @PostMapping
-    public Product createProduct(
-            @RequestParam Long tenant_id,
-            @RequestParam Long organization_id,
+    private ResponseEntity<Map<String, Object>> errorResponse(
+            HttpStatus status,
+            String message) 
+    {
+        Map<String, Object> error = new HashMap<>();
+        error.put("status", status.value());
+        error.put("error", message);
+        error.put("timestamp", System.currentTimeMillis());
+        return ResponseEntity.status(status).body(error);
+    }
+
+    //  CREATE  
+    @PostMapping("/createProduct/{tenantId}/{organizationId}")
+    public ResponseEntity<?> createProduct(
+            @PathVariable String tenantId,
+            @PathVariable String organizationId,
             @RequestBody Product product) 
     {
-        return productService.saveProduct(tenant_id, organization_id, product);
+        try 
+        {
+            log.info("Create Product API called | tenantId={} | organizationId={}", tenantId, organizationId);
+
+            product.setTenantId(tenantId);
+            product.setOrganizationId(organizationId);
+
+            Product savedProduct = productService.saveProduct(product);
+
+            log.info("Product created successfully | productId={}", savedProduct.getId());
+
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedProduct);
+
+        } catch (DataIntegrityViolationException ex) 
+        {
+            log.error("DB constraint violation", ex);
+            return errorResponse(HttpStatus.BAD_REQUEST,
+                    "Invalid database values. Please verify foreign key or unique fields.");
+
+        } catch (Exception ex) {
+            log.error("Error creating product", ex);
+            return errorResponse(HttpStatus.INTERNAL_SERVER_ERROR,
+                    "Failed to create product");
+        }
     }
 
-    // READ - GET List (with optional filters)
-    @GetMapping
-    public List<Product> getAllProducts(
-            @RequestParam(required = false) Long tenant_id,
-            @RequestParam(required = false) Long organization_id) 
+
+    //  UPDATE  
+    @PutMapping("/updateProduct/{tenantId}/{organizationId}/{id}")
+    public ResponseEntity<?> updateProduct(
+            @PathVariable String tenantId,
+            @PathVariable String organizationId,
+            @PathVariable Long id,
+            @RequestBody Product product) 
     {
-        return productService.getProductsByTenantAndOrg(tenant_id, organization_id);
+        try {
+            log.info("Update Product API called | productId={}", id);
+
+            Product updated =
+                    productService.updateProduct(id, tenantId, organizationId, product);
+
+            return ResponseEntity.ok(updated);
+
+        } catch (DataIntegrityViolationException ex) {
+            log.error("DB constraint error while updating product", ex);
+            return errorResponse(HttpStatus.BAD_REQUEST,
+                    "Invalid request data. ");
+
+        } catch (ProductCustomExceptions.ResourceNotFoundException ex) {
+            log.warn(ex.getMessage());
+            return errorResponse(HttpStatus.NOT_FOUND, ex.getMessage());
+
+        } catch (Exception ex) {
+            log.error("Error updating product", ex);
+            return errorResponse(HttpStatus.INTERNAL_SERVER_ERROR,
+                    "Failed to update product");
+        }
     }
 
-    // Pagination endpoint - MUST come before /{id} to avoid route conflict
-    @GetMapping("/pagination")
-    public List<ProductPaginationResponse> getProductsPagination(
-            @RequestParam Long tenantId,
-            @RequestParam Long organizationId,
-            @RequestParam(required = false) String searchText,
-            @RequestParam(defaultValue = "1") Integer offsetStart,
-            @RequestParam(defaultValue = "10") Integer rowsPerPage) 
-    {
-        return productService.getProductsPagination(tenantId, organizationId, searchText, offsetStart, rowsPerPage);
-    }
-
-    // READ - GET by ID
-    @GetMapping("/{id}")
-    public Product getById(@PathVariable Long id) 
-    {
-        return productService.getProductById(id);
-    }
-
-    // UPDATE - PUT
-    @PutMapping("/{id}")
-    public Product updateProduct(
-        @PathVariable Long id,
-=======
-// CREATE - POST
-@PostMapping("/createProduct/{tenantId}/{organizationId}")
-public Product createProduct(
-        @PathVariable("tenantId") String tenantId,
-        @PathVariable("organizationId") String organizationId,
->>>>>>> Stashed changes
-        @RequestBody Product product) 
-{
     
-    product.setTenantId(tenantId);
-    product.setOrganizationId(organizationId);
+    //  GET BY ID  
+    @GetMapping("/getProductById/{tenantId}/{organizationId}/{id}")
+    public ResponseEntity<?> getById(
+            @PathVariable String tenantId,
+            @PathVariable String organizationId,
+            @PathVariable Long id) 
+    {
+        try {
+            log.info("Get Product By ID API called | productId={}", id);
 
-    return productService.saveProduct(product);
-}
+            Product product = productService.getProductById(tenantId, organizationId, id);
 
-<<<<<<< Updated upstream
-=======
-// READ - GET by ID
-@GetMapping("/getProductById/{tenantId}/{organizationId}/{id}")
-public Product getById(
-        @PathVariable("tenantId") String tenantId,
-        @PathVariable("organizationId") String organizationId,
-        @PathVariable("id") Long id) {
+            if (product == null) 
+                {
+                throw new ProductCustomExceptions.ResourceNotFoundException(
+                        "Product not found with id: " + id);
+                }
 
-    return productService.getProductById(tenantId, organizationId, id);
-}
+            return ResponseEntity.ok(product);
 
+        } catch (ProductCustomExceptions.ResourceNotFoundException ex) {
+            log.warn(ex.getMessage());
+            return errorResponse(HttpStatus.NOT_FOUND, ex.getMessage());
 
-// UPDATE - PUT
-@PutMapping("/updateProduct/{id}")
-public Product updateProduct(
-    @PathVariable Long id,
-    @RequestBody Product product) 
-{
-    return productService.updateProduct(id, product);
-}
+        } catch (Exception ex) {
+            log.error("Error fetching product", ex);
+            return errorResponse(HttpStatus.INTERNAL_SERVER_ERROR,
+                    "Failed to fetch product");
+        }
+    }
+
     
-
-// DELETE
-@DeleteMapping("/deleteProduct/{tenantId}/{organizationId}/{id}")
-public String deleteProduct(
-        @PathVariable("tenantId") String tenantId,
-        @PathVariable("organizationId") String organizationId,
-        @PathVariable("id") Long id) 
-{
-    productService.deleteById(tenantId, organizationId, id);
-    return "Product deactivated successfully!";
-}
-
-
-
-// POST mapping for pagination
-@PostMapping("/getAllProductList/{tenantId}/{organizationId}")
-public ResponseEntity<Map<String, Object>> getAllProductList(
+    //GetAllList(ProductName and id)
+   @PostMapping("/getAllProduct/{tenantId}/{organizationId}")
+    public ResponseEntity<?> getAllProducts(
         @PathVariable String tenantId,
-        @PathVariable String organizationId,
-        @RequestBody ProductPaginationRequest request) {
+        @PathVariable String organizationId) 
+        {
 
-    List<ProductPaginationResponse> data = productService.getAllProductList(
-            tenantId,
-            organizationId,
-            request.getSearchText(),
-            request.getOffsetStart(),
-            request.getRowsPerPage()
-    );
+    try {
+        log.info("Get All Products API called | tenantId={}, organizationId={}",
+                tenantId, organizationId);
 
-    Long totalRows = data.isEmpty() ? 0 : data.get(0).getTotalRowsCount();
+        List<ProductIdNameDTO> products = productService.getAllProducts(tenantId, organizationId);
 
-    Map<String, Object> response = new HashMap<>();
-    response.put("totalRows", totalRows);
-    response.put("rows", data);
+        return ResponseEntity.ok(products);
 
-    return ResponseEntity.ok(response);
+    } catch (ProductCustomExceptions.ResourceNotFoundException ex) 
+    {
+        log.warn("Products not found | {}", ex.getMessage());
+        return errorResponse(HttpStatus.NOT_FOUND, ex.getMessage());
+
+    } catch (Exception ex) 
+    {
+        log.error("Error while fetching products", ex);
+        return errorResponse(
+                HttpStatus.INTERNAL_SERVER_ERROR,
+                "Failed to fetch products"
+        );
+    }
 }
 
->>>>>>> Stashed changes
+
+    //  GetProductList(Pagination)  
+    @PostMapping("/getProductList/{tenantId}/{organizationId}")
+    public ResponseEntity<?> getAllProductList(
+            @PathVariable String tenantId,
+            @PathVariable String organizationId,
+            @RequestBody ProductPaginationRequest request) 
+    {
+        try {
+            log.info("Get All Product List API called");
+
+            List<ProductPaginationResponse> data =
+                    productService.getAllProductList(
+                            tenantId,
+                            organizationId,
+                            request.getOffsetStart(),
+                            request.getRowsPerPage(),
+                            request.getSearchText(),
+                            request.getSortOrder(),
+                             request.getSortColumn()
+                    );
+
+            Long totalRows = data.isEmpty() ? 0 : data.get(0).getTotalRowsCount();
+
+            Map<String, Object> response = new HashMap<>();
+            response.put("totalRows", totalRows);
+            response.put("rows", data);
+
+            return ResponseEntity.ok(response);
+
+        } catch (Exception ex) {
+            log.error("Error fetching product list", ex);
+            return errorResponse(HttpStatus.INTERNAL_SERVER_ERROR,
+                    "Failed to fetch product list");
+        }
+    }
+
+
+    //  DELETE  
+    @DeleteMapping("/deleteProduct/{tenantId}/{organizationId}/{id}")
+    public ResponseEntity<?> deleteProduct(
+            @PathVariable String tenantId,
+            @PathVariable String organizationId,
+            @PathVariable Long id) 
+    {
+        try {
+            log.warn("Delete Product API called | productId={}", id);
+
+            productService.deleteById(tenantId, organizationId, id);
+
+            return ResponseEntity.ok("Product deactivated successfully!");
+
+        } catch (ProductCustomExceptions.ResourceNotFoundException ex) {
+            log.warn(ex.getMessage());
+            return errorResponse(HttpStatus.NOT_FOUND, ex.getMessage());
+
+        } catch (Exception ex) {
+            log.error("Error deleting product", ex);
+            return errorResponse(HttpStatus.INTERNAL_SERVER_ERROR,
+                    "Failed to delete product");
+        }
+    }
+
+
+
+//  METHOD NOT ALLOWED  
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    public ResponseEntity<?> handle405(HttpRequestMethodNotSupportedException ex) {
+        return errorResponse(HttpStatus.METHOD_NOT_ALLOWED,
+                "HTTP method not allowed for this endpoint");
+    }
 }
+
+
+   
+    
+
