@@ -1,0 +1,15 @@
+2025-12-27 16:47:16 INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-27 16:47:16 WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-27 16:47:17 INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-27 16:47:17 INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-12-27 16:47:17 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/api'
+2025-12-27 16:47:17 INFO  com.billing.BillingApplication - Started BillingApplication in 13.997 seconds (process running for 15.015)
+2025-12-27 16:47:32 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-27 16:47:32 INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-27 16:47:32 INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-12-27 16:47:34 INFO  org.springdoc.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 1047 ms
+2025-12-27 16:48:11 INFO  com.billing.controller.ProductController - Create Product API called | tenantId=70 | organizationId=70
+2025-12-27 16:48:11 INFO  com.billing.controller.ProductController - Product created successfully | productId=70
+2025-12-27 16:48:59 INFO  com.billing.controller.ProductController - Get All Products API called | tenantId=60, organizationId=60
+2025-12-27 16:49:31 INFO  com.billing.controller.ProductController - Get All Product List API called
+2025-12-27 16:50:09 INFO  com.billing.controller.ProductController - Update Product API called | productId=70

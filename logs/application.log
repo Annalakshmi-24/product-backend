@@ -1,0 +1,4 @@
+2025-12-29 16:39:35 INFO  com.billing.controller.ProductController - Get Product By ID API called | productId=71
+2025-12-29 16:39:49 INFO  com.billing.controller.ProductController - Get All Products API called | tenantId=40, organizationId=40
+2025-12-29 16:40:24 INFO  com.billing.controller.ProductController - Get All Product List API called
+2025-12-29 16:41:13 INFO  com.billing.controller.ProductController - Update Product API called | productId=71
