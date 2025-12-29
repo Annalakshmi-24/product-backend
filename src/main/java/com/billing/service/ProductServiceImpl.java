@@ -17,18 +17,21 @@ import com.billing.repository.ProductRepository;
 import com.billing.validation.ProductValidation;
 
 @Service
-public class ProductServiceImpl implements ProductService {
+public class ProductServiceImpl implements ProductService 
+{
 
     private final ProductRepository productRepository;
 
-    public ProductServiceImpl(ProductRepository productRepository) {
+    public ProductServiceImpl(ProductRepository productRepository) 
+    {
         this.productRepository = productRepository;
     }
 
     // CREATE
     @Override
     @Transactional
-    public Product saveProduct(Product product) {
+    public Product saveProduct(Product product) 
+    {
 
         ProductValidation.validateSave(product);
 
@@ -47,11 +50,13 @@ public class ProductServiceImpl implements ProductService {
 
     // UPDATE
     @Override
-    public Product updateProduct(Long id, String tenantId, String organizationId, Product product) {
+    public Product updateProduct(Long id, String tenantId, String organizationId, Product product) 
+    {
 
         ProductValidation.validateUpdate(id, product);
 
-        if (tenantId == null || organizationId == null) {
+        if (tenantId == null || organizationId == null) 
+        {
             throw new IllegalArgumentException("TenantId and OrganizationId must not be null");
         }
 
@@ -59,7 +64,8 @@ public class ProductServiceImpl implements ProductService {
                 .orElseThrow(() -> new ProductNotFoundException(id));
 
         if (!tenantId.equals(existing.getTenantId())
-                || !organizationId.equals(existing.getOrganizationId())) {
+                || !organizationId.equals(existing.getOrganizationId())) 
+            {
             throw new ProductNotFoundException(
                     "Product does not belong to given tenant or organization"
             );
